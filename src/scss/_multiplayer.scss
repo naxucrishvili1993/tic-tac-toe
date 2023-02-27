@@ -1,0 +1,155 @@
+.multiplayer {
+	&-header {
+		align-items: center;
+		display: flex;
+		gap: 1.5rem;
+		justify-content: space-between;
+		padding: 1rem;
+		&-logo {
+			width: 60px;
+		}
+		p {
+			align-items: center;
+			background-color: $semi-dark-navy;
+			border-radius: 10px;
+			box-shadow: inset 0px -4px 0px #10212a;
+			color: $silver;
+			display: flex;
+			gap: 10px;
+			padding: 1rem 2rem;
+		}
+		&-turn {
+			width: 20px;
+		}
+		&-restart {
+			background-color: $silver-hover;
+			border-radius: 10px;
+			box-shadow: inset 0px -4px 0px #6b8997;
+			cursor: pointer;
+			padding: 0.8rem;
+		}
+	}
+	table {
+		border-spacing: 1rem;
+		margin-top: 1rem;
+		width: 100%;
+		tr {
+			td {
+				background-color: $semi-dark-navy;
+				border-radius: 15px;
+				box-shadow: inset 0px -8px 0px #10212a;
+				text-align: center;
+				height: 5rem;
+				width: 5rem;
+				.game-icon {
+					width: 40px;
+				}
+			}
+			.active-x {
+				background-color: $light-blue;
+				box-shadow: inset 0px -8px 0px #146865;
+				img {
+					mix-blend-mode: difference;
+				}
+			}
+			.active-o {
+				background-color: $light-yellow;
+				box-shadow: inset 0px -8px 0px #9b690e;
+				img {
+					mix-blend-mode: difference;
+				}
+			}
+		}
+	}
+	table.no-click {
+		pointer-events: none;
+	}
+	&-counter {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 10px;
+		padding: 1rem;
+		width: 100%;
+		div {
+			border-radius: 15px;
+			padding: 0.7rem 1.2rem;
+			text-align: center;
+			&:nth-of-type(1) {
+				background-color: $light-blue;
+			}
+			&:nth-of-type(2) {
+				background-color: $silver;
+			}
+			&:nth-of-type(3) {
+				background-color: $light-yellow;
+			}
+			h3 {
+				font-size: 1.3rem;
+			}
+		}
+	}
+	@keyframes fadeIn {
+		from {
+			transform: translateY(-250%);
+		}
+		to {
+			transform: translateY(-50%);
+		}
+	}
+	.winner {
+		align-items: center;
+		animation: fadeIn 700ms ease-in-out;
+		background-color: $semi-dark-navy;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		left: 0;
+		padding: 3rem 1rem;
+		position: absolute;
+		text-align: center;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		p {
+			color: $silver;
+		}
+		&-info {
+			align-items: center;
+			display: flex;
+			gap: 10px;
+			justify-content: center;
+			img {
+				width: 35px;
+			}
+		}
+		&-buttons {
+			display: flex;
+			gap: 1rem;
+			button {
+				border: none;
+				border-radius: 10px;
+				cursor: pointer;
+				font-weight: 700;
+				letter-spacing: 1px;
+				padding: 1rem 1.2rem;
+			}
+			&-quit {
+				background-color: $silver;
+				box-shadow: inset 0px -4px 0px #6b8997;
+			}
+			&-next-round {
+				background-color: $light-yellow;
+				box-shadow: inset 0px -4px 0px #cc8b13;
+			}
+		}
+		&-x {
+			color: $light-blue;
+		}
+		&-o {
+			color: $light-yellow;
+		}
+		&-tied {
+			color: $silver;
+		}
+	}
+}

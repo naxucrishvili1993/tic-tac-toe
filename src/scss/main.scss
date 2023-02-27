@@ -1,0 +1,10 @@
+@import "config";
+@import "first-page";
+@import "multiplayer";
+
+body {
+	background-color: $dark-navy;
+	display: grid;
+	height: 80vh;
+	place-items: center;
+}
