@@ -30,6 +30,7 @@ body .home-page-mid {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  max-width: 400px;
   padding: 1.5rem;
   text-align: center;
 }
@@ -70,6 +71,7 @@ body .home-page-bottom {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  text-align: center;
 }
 body .home-page-bottom button {
   border: none;
@@ -77,8 +79,10 @@ body .home-page-bottom button {
   cursor: pointer;
   font-weight: 700;
   letter-spacing: 1px;
-  padding: 1.2rem;
   width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 1.2rem;
 }
 body .home-page-bottom-solo-btn {
   background-color: #f2b137;
