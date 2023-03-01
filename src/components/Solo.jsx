@@ -25,9 +25,7 @@ const Multiplayer = (props) => {
 	const [tieCounter, setTieCounter] = useState(0);
 	const [restartPage, setRestartPage] = useState(false);
 	const randomNumberRef = useRef(Math.floor(Math.random() * 9));
-	let realPlayer;
-	if (cpuPlayerRef.current === "X") realPlayer = "O";
-	else realPlayer = "X";
+	let realPlayer = cpuPlayerRef.current === "X" ? "O" : "X";
 
 	const winnerIsX = () => {
 		return (
@@ -112,7 +110,6 @@ const Multiplayer = (props) => {
 		);
 	};
 	const nextGame = () => {
-		setBoard(starterBoard);
 		setOWon(false);
 		setXWon(false);
 		xWinningLineRef.current = [];
@@ -120,14 +117,15 @@ const Multiplayer = (props) => {
 		winnerFoundRef.current = false;
 		setWinnerFound(winnerFoundRef.current);
 		setRoundTied(false);
-		setTurn(realPlayer);
-		turnRef.current = realPlayer;
+		setTurn("X");
+		turnRef.current = "X";
+		setBoard(starterBoard);
 	};
 	useEffect(() => {
 		if (turnRef.current !== realPlayer && !winnerFoundRef.current) {
 			makeCpuTurn();
 		}
-	}, [turnRef.current]);
+	}, [turnRef.current, board]);
 
 	const makeCpuTurn = () => {
 		let newBoard = board;
@@ -192,10 +190,16 @@ const Multiplayer = (props) => {
 				}
 			}
 		}
+		if (el.every((el) => el !== null) && !winnerFoundRef.current) {
+			setRoundTied(true);
+			setTieCounter(tieCounter + 1);
+		}
 	};
+
 	const handleRestart = () => {
 		setRestartPage(true);
 	};
+
 	return (
 		<>
 			<div className="multiplayer">
