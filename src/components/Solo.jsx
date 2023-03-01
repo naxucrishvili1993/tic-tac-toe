@@ -190,7 +190,11 @@ const Multiplayer = (props) => {
 				}
 			}
 		}
-		if (el.every((el) => el !== null) && !winnerFoundRef.current) {
+		if (
+			el.every((el) => el !== null) &&
+			!winnerFoundRef.current &&
+			realPlayer !== "X"
+		) {
 			setRoundTied(true);
 			setTieCounter(tieCounter + 1);
 		}
